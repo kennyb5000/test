@@ -1,0 +1,31 @@
+<html>
+<head>
+    <title>Test JS event</title>
+    <script>
+        function HandlePhaserEvent(event) {
+            document.getElementById('parentoutput').innerHTML = event.data;
+            console.log('HandlePhaserEvent')
+            console.log(event)
+        }
+
+        function AssignListeners() {
+            window.addEventListener('message', HandlePhaserEvent, false);
+            console.log('AssignListeners')
+        }
+
+        function AssignParent() {
+            document.getElementsByTagName('iframe')[0].contentWindow.postMessage(document.location.href, 'https://kennybrowne.github.io/test/');
+        }
+
+        function init() {
+            AssignListeners();
+            console.log("assigned");
+            AssignParent();
+        }
+    </script>
+</head>
+<body onload="init()">
+<iframe src="https://kennybrowne.github.io/test/"></iframe>
+<p id="parentoutput"></p>
+</body>
+</html>
