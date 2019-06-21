@@ -28,13 +28,17 @@
             document.getElementsByTagName('iframe')[0].src = window.frameUrl;
             AssignListeners();
             console.log("assigned");
+        }
+        
+        fucntion onLoadHandler(){
             AssignParent();
+            console.log("onLoadHandler");
         }
     </script>
     
 </head>
 <body onload="init()">
-<iframe src="https://kennybrowne.github.io/test/"></iframe>
+<iframe src="window.frameUrl" onload="onLoadHandler();"></iframe>
 <p id="parentoutput"></p>
 </body>
 </html>
