@@ -2,6 +2,12 @@
 <head>
     <title>Test JS event</title>
     <script>
+        function getParams(){
+            var url_string =window.location.href
+            var url = new URL(url_string);
+            window.frameUrl = url.searchParams.get("url");
+        }
+        
         function HandlePhaserEvent(event) {
             document.getElementById('parentoutput').innerHTML = event.data;
             console.log('HandlePhaserEvent')
@@ -14,19 +20,21 @@
         }
 
         function AssignParent() {
-            document.getElementsByTagName('iframe')[0].contentWindow.postMessage(document.location.href, 'https://kennybrowne.github.io/test/');
+            document.getElementsByTagName('iframe')[0].contentWindow.postMessage(document.location.href, window.frameUrl);
         }
 
         function init() {
+            getParams();
             AssignListeners();
             console.log("assigned");
             AssignParent();
+            document.getElementsByTagName('iframe')[0].src = window.frameUrl;
         }
     </script>
     
 </head>
 <body onload="init()">
-<iframe src="https://kennybrowne.github.io/test/"></iframe>
+<iframe src=""></iframe>
 <p id="parentoutput"></p>
 </body>
 </html>
