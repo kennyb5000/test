@@ -25,10 +25,10 @@
 
         function init() {
             getParams();
+            document.getElementsByTagName('iframe')[0].src = window.frameUrl;
             AssignListeners();
             console.log("assigned");
             AssignParent();
-            document.getElementsByTagName('iframe')[0].src = window.frameUrl;
         }
     </script>
     
