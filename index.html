@@ -10,13 +10,13 @@
         
         function HandlePhaserEvent(event) {
             document.getElementById('parentoutput').innerHTML = event.data;
-            console.log('HandlePhaserEvent')
+            console.log('Event Found')
             console.log(event)
         }
 
         function AssignListeners() {
             window.addEventListener('message', HandlePhaserEvent, false);
-            console.log('AssignListeners')
+            console.log('ParentListening')
         }
 
         function AssignParent() {
