@@ -9,9 +9,14 @@
         }
         
         function HandlePhaserEvent(event) {
-            document.getElementById('parentoutput').innerHTML = event.data;
-            console.log('Event Found')
-            console.log(event)
+            console.log('**********************************************************')
+            event = JSON.parse(string);
+            if(event.response.i4go_response === 'SUCCESS'){
+                document.getElementById('parentoutput').innerHTML = event.data;
+                console.log('Event Found');
+                console.log(event);
+            }
+            console.log('**********************************************************')
         }
 
         function AssignListeners() {
