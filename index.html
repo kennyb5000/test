@@ -9,16 +9,9 @@
         }
         
         function HandlePhaserEvent(event) {
-            try {
-                console.log('**********************************************************')
-                console.log(event);
-                var data = event.data;
-                if(data.i4go_response === 'SUCCESS'){
-                    document.getElementById('parentoutput').innerHTML = JSON.stringify(data);
-                }
-                console.log('**********************************************************')
-            } catch (e) {
-                return false;
+            var data = event.data;
+            if(data.i4go_response === 'SUCCESS'){
+                document.getElementById('parentoutput').innerHTML = JSON.stringify(data);
             }
             
         }
