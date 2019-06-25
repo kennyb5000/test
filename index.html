@@ -12,16 +12,13 @@
             console.log('**********************************************************')
             console.log(event);
             try {
-                console.log('In Try')
                 var data = JSON.parse(event.data);
-                console.log('Parsed')
                 if(data.response.i4go_response === 'SUCCESS'){
                     console.log('is Success')
                     document.getElementById('parentoutput').innerHTML = data.data;
                     console.log('Event Found');
                 }
             } catch (e) {
-                console.log('Not a JSON String');
                 return false;
             }
             
@@ -30,7 +27,6 @@
 
         function AssignListeners() {
             window.addEventListener('message', HandlePhaserEvent, false);
-            console.log('ParentListening')
         }
 
         function AssignParent() {
@@ -41,12 +37,10 @@
             getParams();
             document.getElementsByTagName('iframe')[0].src = window.frameUrl;
             AssignListeners();
-            console.log("assigned");
         }
         
         function onLoadHandler(){
             AssignParent();
-            console.log("onLoadHandler");
         }
     </script>
     
