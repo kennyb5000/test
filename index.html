@@ -9,20 +9,20 @@
         }
         
         function HandlePhaserEvent(event) {
-            console.log('**********************************************************')
-            console.log(event);
             try {
+                console.log('**********************************************************')
+                console.log(event);
                 var data = event.data;
                 if(data.i4go_response === 'SUCCESS'){
                     console.log('is Success')
                     document.getElementById('parentoutput').innerHTML = data;
                     console.log('Event Found');
                 }
+                console.log('**********************************************************')
             } catch (e) {
                 return false;
             }
             
-            console.log('**********************************************************')
         }
 
         function AssignListeners() {
