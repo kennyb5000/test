@@ -10,13 +10,21 @@
         
         function HandlePhaserEvent(event) {
             console.log('**********************************************************')
-            data = event;
-            debugger
-            if(data.response.i4go_response === 'SUCCESS'){
-                document.getElementById('parentoutput').innerHTML = data.data;
-                console.log('Event Found');
-                console.log(event);
+            console.log(event);
+            try {
+                console.log('In Try')
+                var data = JSON.parse(event.data);
+                console.log('Parsed')
+                if(data.response.i4go_response === 'SUCCESS'){
+                    console.log('is Success')
+                    document.getElementById('parentoutput').innerHTML = data.data;
+                    console.log('Event Found');
+                }
+            } catch (e) {
+                console.log('Not a JSON String');
+                return false;
             }
+            
             console.log('**********************************************************')
         }
 
