@@ -30,7 +30,7 @@
         }
 
         function AssignParent() {
-            document.getElementsByTagName('iframe')[0].contentWindow.postMessage(document.location.href, window.frameUrl);
+            document.getElementsByTagName('iframe')[0].contentWindow.postMessage({ eventType: 'parentLocation', data: document.location.href }, window.frameUrl);
         }
 
         function init() {
