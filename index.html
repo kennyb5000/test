@@ -14,9 +14,7 @@
                 console.log(event);
                 var data = event.data;
                 if(data.i4go_response === 'SUCCESS'){
-                    console.log('is Success')
-                    document.getElementById('parentoutput').innerHTML = data;
-                    console.log('Event Found');
+                    document.getElementById('parentoutput').innerHTML = JSON.stringify(data);
                 }
                 console.log('**********************************************************')
             } catch (e) {
