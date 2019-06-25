@@ -10,7 +10,8 @@
         
         function HandlePhaserEvent(event) {
             console.log('**********************************************************')
-            data = JSON.parse(event);
+            data = event;
+            debugger
             if(data.response.i4go_response === 'SUCCESS'){
                 document.getElementById('parentoutput').innerHTML = data.data;
                 console.log('Event Found');
