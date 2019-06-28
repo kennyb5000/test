@@ -37,12 +37,14 @@
         function popItUp(){
             var w = window.open(window.frameUrl);
 
-            window.setTimeout(function(){
-                console.log('posting')
-                if(window.messageReceived == true){ return; }
-                w.postMessage({ eventType: 'parentLocation', data: document.location.href }, window.frameUrl);
-                postIt();
-            }, 1000)
+            function postIt(){
+                window.setTimeout(function(){
+                    console.log('posting')
+                    if(window.messageReceived == true){ return; }
+                    w.postMessage({ eventType: 'parentLocation', data: document.location.href }, window.frameUrl);
+                    postIt();
+                }, 1000)
+            }
             postIt();
         }
     </script>
