@@ -10,8 +10,8 @@
         
         function HandlePhaserEvent(event) {
             var data = event.data;
-            window.messageReceived = true;
             if(data.i4go_response === 'SUCCESS'){
+                window.messageReceived = true;
                 document.getElementById('parentoutput').innerHTML = JSON.stringify(data);
             }
         }
