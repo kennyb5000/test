@@ -10,10 +10,10 @@
         
         function HandlePhaserEvent(event) {
             var data = event.data;
+            window.messageReceived = true;
             if(data.i4go_response === 'SUCCESS'){
                 document.getElementById('parentoutput').innerHTML = JSON.stringify(data);
             }
-            
         }
 
         function AssignListeners() {
@@ -33,11 +33,26 @@
         function onLoadHandler(){
             AssignParent();
         }
+
+        function popItUp(){
+            var w = window.open(window.frameUrl);
+
+            function postIt() {
+                window.setTimeout(function(){
+                    console.log('posting')
+                    if(window.messageReceived == true){ return; }
+                    w.postMessage({ eventType: 'parentLocation', data: document.location.href }, window.frameUrl);
+                    postIt();
+                }, 1000)
+            }
+            postIt();
+        }
     </script>
     
 </head>
 <body onload="init()">
 <iframe src="" onload="onLoadHandler();"></iframe>
 <p id="parentoutput"></p>
+    <button onclick='popitup()'>Click Me</button>
 </body>
 </html>
