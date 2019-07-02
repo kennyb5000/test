@@ -35,7 +35,7 @@
         }
 
         function popItUp(){
-            var w = window.open(window.frameUrl);
+            var w = window.open(window.frameUrl + '&parentUrl=' + window.location.href);
 
             function postIt(){
                 window.setTimeout(function(){
